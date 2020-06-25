@@ -7,7 +7,7 @@ const Logo = () => {
   {
     allImageSharp(filter: {fluid: {src: {regex: "/sb-logo.png/"}}}) {
       nodes {
-        fixed {
+        fixed(height: 295) {
           ...GatsbyImageSharpFixed
         }
       }

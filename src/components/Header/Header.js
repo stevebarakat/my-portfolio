@@ -8,10 +8,6 @@ import {
   colorTheme, 
   colorBody, 
   inputButtonHeight, 
-  layoutLaptop,
-  layoutMobileLg,
-  layoutTablet,
-  layoutNotebook,
   transition
 } from '../../styles/variables';
 import Logo from './Logo';
@@ -31,24 +27,25 @@ const Toggler = styled.button`
         display: flex;
         justify-content: center;
         align-items: center;
-        display: none;
-
         &:focus {
             border-color: ${colorBorder};
         }
-`
+        `
 
 const SideHeader = styled.nav`
   width: 300px;
-  height: 100vh;
-  transition: all 0.4s ease-out;
-  transform: translate3d(0, 0, 0);
   height: 100vh;
   background: #191d2b;
   border-right: 1px solid #2e344e;
   z-index: 10;
   transition: ${transition};
-  @media (max-width: 900px){
+  
+  .not-visible{
+  }
+  .is-visible{
+    transform: translate3d(0, 0, 0);
+  }
+  @media (max-width: 768px){
     transform: translate3d(-300px, 0, 0);
     width: 0;
   }
@@ -137,11 +134,6 @@ const SideHeader = styled.nav`
         width: 100%;
         padding: 15px 5px;
     }
-    .is-visible {
-        background: red;
-    }
-
-   
 }
 `
 
@@ -154,9 +146,9 @@ const Header = () => {
 
   return (
     <>
-      <SideHeader className={navigationToggler ? "is-visible" : ""}>
-        <Toggler onClick={handleNavigationToggler}>
-          {!navigationToggler ? <AiOutlineMenu /> : <AiOutlineClose />}
+      <SideHeader style={navigationToggler ? {transform: 'translate3d(0, 0, 0)', width: '0'} : {transform: 'translate3d(0, 0, 0)'}}>
+        <Toggler className={navigationToggler ? "is-visible" : "not-visible"} onClick={handleNavigationToggler}>
+          {!navigationToggler ? <AiOutlineClose /> : <AiOutlineMenu /> }
         </Toggler>
         <div className="inner">
           <div className="image">

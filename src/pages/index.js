@@ -18,7 +18,7 @@ const StyledParticles = styled(Particles)`
   left: 0;
   top: 0;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   z-index: -1;
 `
 

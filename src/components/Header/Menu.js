@@ -42,10 +42,6 @@ const MainMenu = styled.div`
       color: white;
       background: ${colorTheme};
     }
-    @media (max-width: 768px) {
-        width: 60px;
-        background: red;
-    }
 `
 
 const Menu = () => {
