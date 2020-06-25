@@ -19,3 +19,7 @@ export const layoutTablet = 'only screen and (min-width: 768px) and (max-width: 
 export const layoutMobileLg = 'only screen and (max-width: 767px)';
 export const layoutMobileSm = 'only screen and (max-width: 575px)';
 export const layoutMobileXs = 'only screen and (max-width: 480px)';
+
+export const inputButtonHeight = '50px';
+
+export const transition = 'all 0.4s ease-out';

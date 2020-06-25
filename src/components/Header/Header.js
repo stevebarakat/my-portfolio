@@ -1,10 +1,21 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import LineIcon from 'react-lineicons';
 import { Link } from 'gatsby';
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { 
+  colorBorder, 
+  colorBgBody, 
+  colorTheme, 
+  colorBody, 
+  inputButtonHeight, 
+  layoutLaptop,
+  layoutMobileLg,
+  layoutTablet,
+  layoutNotebook,
+  transition
+} from '../../styles/variables';
 import Logo from './Logo';
 import Menu from './Menu';
-import { colorBorder, colorBgBody } from '../../styles/variables';
 import Copyright from './Copyright';
 
 const Toggler = styled.button`
@@ -12,7 +23,7 @@ const Toggler = styled.button`
         left: 100%;
         top: 20px;
         padding: 0;
-        height: $input-button-height;
+        height: ${inputButtonHeight};
         width: 50px;
         text-align: center;
         font-size: 1.6rem;
@@ -27,8 +38,7 @@ const Toggler = styled.button`
         }
 `
 
-const SideHeader = styled.header`
-  background-color: red;
+const SideHeader = styled.nav`
   width: 300px;
   height: 100vh;
   transition: all 0.4s ease-out;
@@ -37,10 +47,66 @@ const SideHeader = styled.header`
   background: #191d2b;
   border-right: 1px solid #2e344e;
   z-index: 10;
-  transition: all 0.4s ease-out;
-  @media (max-width: 768px) {
+  transition: ${transition};
+  @media (max-width: 900px){
     transform: translate3d(-300px, 0, 0);
     width: 0;
+  }
+  li {
+    list-style: none;
+    text-align: center;
+    display: block;
+
+    &:not(:last-child) {
+        margin-bottom: 1px;
+    }
+
+    a {
+        text-transform: uppercase;
+        font-size: 0.94rem;
+        letter-spacing: 1px;
+        display: block;
+        padding: 5px 0;
+        color: ${colorBody};
+        transition: $transition;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 100%;
+            height: 100%;
+            width: 0;
+            background: rgba(${colorTheme}, 0.2);
+            visibility: hidden;
+            transition: $transition;
+            z-index: -1;
+        }
+
+        &:hover {
+            color: ${colorTheme};
+
+            &::before {
+                width: 100%;
+                visibility: visible;
+            }
+        }
+
+        &.active {
+            color: #ffffff;
+
+            &::before {
+                background: ${colorTheme};
+                width: 100%;
+                visibility: visible;
+            }
+        }
+    }
   }
   .inner {
     width: 100%;
@@ -67,9 +133,15 @@ const SideHeader = styled.header`
         padding-top: 10px;
       }
     }
+    .menu {
+        width: 100%;
+        padding: 15px 5px;
+    }
     .is-visible {
         background: red;
     }
+
+   
 }
 `
 
@@ -81,10 +153,10 @@ const Header = () => {
   }
 
   return (
-    <SideHeader>
-      <nav className={navigationToggler ? "is-visible" : ""}>
+    <>
+      <SideHeader className={navigationToggler ? "is-visible" : ""}>
         <Toggler onClick={handleNavigationToggler}>
-          {!navigationToggler ? <LineIcon name="menu" /> : <LineIcon name="close" />}
+          {!navigationToggler ? <AiOutlineMenu /> : <AiOutlineClose />}
         </Toggler>
         <div className="inner">
           <div className="image">
@@ -93,8 +165,8 @@ const Header = () => {
           <Menu />
           <Copyright />
         </div>
-      </nav>
-    </SideHeader>
+      </SideHeader>
+    </>
   )
 }
 

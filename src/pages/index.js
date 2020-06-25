@@ -4,13 +4,22 @@ import Particles from "react-particles-js";
 import styled from 'styled-components';
 import Layout from '../components/Layout/Layout';
 
+const HeroUnit = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1; 
+  flex-direction: column;
+`
 const StyledParticles = styled(Particles)`
   position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 `
 
 const Home = () => {
@@ -60,9 +69,11 @@ const Home = () => {
 
   return (
     <Layout>
-      <StyledParticles className="mi-home-particle" params={paramConfig} />
-      <h1>Hi, I am {name}</h1>
-      <p>{description}</p>
+      <HeroUnit>
+        <StyledParticles params={paramConfig} />
+        <h1>Hi, I am {name}</h1>
+        <p>{description}</p>
+      </HeroUnit>
     </Layout>
   )
 }
