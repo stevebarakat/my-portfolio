@@ -15,7 +15,7 @@ const MainMenu = styled.div`
       color: #a4acc4;
       transition: all 0.4s ease-out;
       font-weight: 600;
-      position: relative;
+      /* position: relative; */
       overflow: hidden;
       z-index: 1;
       font-family: "Nunito";

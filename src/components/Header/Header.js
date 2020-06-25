@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
@@ -28,7 +28,10 @@ const Toggler = styled.button`
         justify-content: center;
         align-items: center;
         &:focus {
-            border-color: ${colorBorder};
+          border-color: ${colorBorder};
+        }
+        @media (min-width: 1200px){
+          display: none;
         }
         `
 
@@ -39,15 +42,15 @@ const SideHeader = styled.nav`
   border-right: 1px solid #2e344e;
   z-index: 10;
   transition: ${transition};
-  
+  position: absolute;
   .not-visible{
   }
-  .is-visible{
-    transform: translate3d(0, 0, 0);
+  @media (max-width: 1200px){
+    /* transform: translate3d(-300px, 0, 0); */
+    /* width: 0; */
   }
-  @media (max-width: 768px){
-    transform: translate3d(-300px, 0, 0);
-    width: 0;
+  .is-visible{
+    /* transform: translate3d(0, 0, 0); */
   }
   li {
     list-style: none;
@@ -140,14 +143,29 @@ const SideHeader = styled.nav`
 const Header = () => {
   const [navigationToggler, setNavigationToggler] = useState(false);
 
+  useLayoutEffect(() => {
+    window.addEventListener("resize", () => {
+      console.log(window.innerWidth);
+      // window.innerWidth < 1200 ? setNavigationToggler(!navigationToggler) : setNavigationToggler(navigationToggler);
+      if(window.innerWidth < 1200){
+        setNavigationToggler(!navigationToggler);
+      }else if(window.innerWidth > 1200){
+        setNavigationToggler(navigationToggler);
+      }
+    });
+    return function cleanup() {
+      window.removeEventListener("resize", setNavigationToggler);
+    };
+  }, []);
+
   const handleNavigationToggler = () => {
     setNavigationToggler(!navigationToggler);
   }
 
   return (
     <>
-      <SideHeader style={navigationToggler ? {transform: 'translate3d(0, 0, 0)', width: '0'} : {transform: 'translate3d(0, 0, 0)'}}>
-        <Toggler className={navigationToggler ? "is-visible" : "not-visible"} onClick={handleNavigationToggler}>
+      <SideHeader style={navigationToggler ? {transform: 'translate3d(-100%, 0, 0)', width: '0'} : {transform: 'translate3d(0, 0, 0)'}}>
+        <Toggler className={navigationToggler ? {transform: 'translate3d(-100%, 0, 0)'} : {transform: 'translate3d(0, 0, 0)'}} onClick={handleNavigationToggler}>
           {!navigationToggler ? <AiOutlineClose /> : <AiOutlineMenu /> }
         </Toggler>
         <div className="inner">

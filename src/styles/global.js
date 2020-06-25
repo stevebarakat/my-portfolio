@@ -1,5 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
-import { colorBody, colorBgBody, colorBorder, colorTheme, colorHeading, fzBody, ffHeading, ffBody } from './variables.js';
+import { 
+  colorBody, 
+  colorBgBody, 
+  colorBorder, 
+  colorTheme, 
+  colorHeading, 
+  fzBody, 
+  ffHeading, 
+  ffBody,
+  layoutMobileXs,
+  layoutMobileSm,
+  layoutMobileLg,
+  layoutTablet,
+  layoutNotebook,
+  layoutLaptop,
+  layoutDesktopXs,
+  layoutDektop,
+ } from './variables.js';
 
 const GlobalStyle = createGlobalStyle`
 /**
@@ -44,10 +61,10 @@ body {
     font-weight: 400;
     background: ${colorBgBody};
 
-    @media #{$layout-tablet} {
+    @media ${layoutTablet} {
     }
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
     }
 }
 
@@ -75,12 +92,12 @@ h1 {
     font-size: 3.2857rem;
     line-height: 4rem;
 
-    @media #{$layout-tablet} {
+    @media ${layoutTablet} {
         font-size: 2.9857rem;
         line-height: 3.4rem;
     }
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         font-size: 2.6857rem;
         line-height: 3.1rem;
     }
@@ -90,12 +107,12 @@ h2 {
     font-size: 2.57rem;
     line-height: 3.2857rem;
 
-    @media #{$layout-tablet} {
+    @media ${layoutTablet} {
         font-size: 2.37rem;
         line-height: 3.0857rem;
     }
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         font-size: 2.17rem;
         line-height: 2.857rem;
     }
@@ -105,7 +122,7 @@ h3 {
     font-size: 2rem;
     line-height: 2.7rem;
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         font-size: 1.91rem;
         line-height: 2.357rem;
     }
@@ -115,7 +132,7 @@ h4 {
     font-size: 1.71rem;
     line-height: 2.43rem;
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         font-size: 1.51rem;
         line-height: 2.13rem;
     }
@@ -125,7 +142,7 @@ h5 {
     font-size: 1.43rem;
     line-height: 2.14rem;
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         font-size: 1.23rem;
         line-height: 2.04rem;
     }
@@ -135,7 +152,7 @@ h6 {
     font-size: 1.14rem;
     line-height: 1.857rem;
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         font-size: 1.04rem;
         line-height: 1.657rem;
     }
@@ -208,7 +225,7 @@ button {
     height: $input-button-height;
     padding: 0 15px;
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         height: 44px;
     }
 }
@@ -246,7 +263,7 @@ blockquote {
         }
     }
 
-    @media #{$layout-mobile-lg} {
+    @media ${layoutMobileLg} {
         font-size: 16px;
         line-height: 25px;
         padding: 20px;

@@ -3,15 +3,18 @@ import { useStaticQuery, graphql } from "gatsby";
 import Particles from "react-particles-js";
 import styled from 'styled-components';
 import Layout from '../components/Layout/Layout';
+import { colorTheme } from '../styles/variables.js';
 
 const HeroUnit = styled.div`
   display: flex;
+  height: 100vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  position: relative;
-  z-index: 1; 
-  flex-direction: column;
+  text-align: center;
+  h1{
+    font-weight: 700;
+  }
 `
 const StyledParticles = styled(Particles)`
   position: absolute;
@@ -69,10 +72,10 @@ const Home = () => {
 
   return (
     <Layout>
+        {/* <StyledParticles params={paramConfig} /> */}
       <HeroUnit>
-        <StyledParticles params={paramConfig} />
-        <h1>Hi, I am {name}</h1>
-        <p>{description}</p>
+          <h1>Hi, I am <span style={{color: colorTheme}}>{name}</span></h1>
+          <p>{description}</p>
       </HeroUnit>
     </Layout>
   )

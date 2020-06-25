@@ -1,22 +1,42 @@
-import React from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
 import Header from '../Header/Header';
 import GlobalStyle from '../../styles/global.js';
 
-const Site = styled.div`
-  display: flex;
-`
 
 const Layout = ({ children }) => {
-  return (
-    <>
+  const [width, setWidth] = useState(`${window.innerWidth - 300}px`);
+  
+  useLayoutEffect(() => {
+      window.addEventListener("resize", () => {
+          console.log(window.innerWidth);
+          if (window.innerWidth < 1200) {
+              setWidth('100%');
+            } else if (window.innerWidth > 1200) {
+                setWidth(`${window.innerWidth - 300}px`);
+              }
+            });
+            return function cleanup() {
+                window.removeEventListener("resize", setWidth);
+              };
+            }, []);
+            const Container = styled.div`
+              display: block;
+              width: ${width};
+              margin: 0 auto;
+              position: relative;
+              float: right;
+              padding: 0 4em;
+            `
+            return (
+              <>
       <Reset />
       <GlobalStyle />
-      <Site>
-        <Header />
-        <div>{children}</div>
-      </Site>
+      <Header />
+      <Container>
+        {children}
+      </Container>
     </>
   )
 }
