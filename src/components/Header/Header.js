@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Logo from './Logo';
-// import Copyright from './Copyright';
+import Copyright from './Copyright';
 
 function Header() {
   const [navigationToggler, setNavigationToggler] = useState(false);
@@ -29,7 +29,7 @@ function Header() {
           <li><Link to="/portfolio" className="link" activeClassName="active"><span>Portfolio</span></Link></li>
           <li><Link to="/contact" className="link" activeClassName="active"><span>Contact</span></Link></li>
         </ul>
-        {/* <Copyright /> */}
+        <Copyright />
       </div>
     </nav>
   )

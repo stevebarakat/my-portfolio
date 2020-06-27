@@ -22,7 +22,7 @@ const SiteCopyright = styled.p`
 `
 const Copyright = () => {
   return (
-    <Copyright>&copy; {new Date().getFullYear()} <b><a rel="noopener noreferrer" target="_blank" href="https://nuclearthemes.com">Steve Barakat</a></b></Copyright>
+    <SiteCopyright>&copy; {new Date().getFullYear()} <b><a rel="noopener noreferrer" target="_blank" href="https://nuclearthemes.com">Steve Barakat</a></b></SiteCopyright>
   )
 }
 
