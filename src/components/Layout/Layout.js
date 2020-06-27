@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react'
 import styled from 'styled-components';
+import { window, document, exists } from 'browser-monads';
 import { Reset } from 'styled-reset';
 import Header from '../Header/Header';
 import GlobalStyle from '../../styles/global.js';

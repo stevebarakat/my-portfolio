@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react'
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { window, document, exists } from 'browser-monads';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { 
   colorBorder, 
@@ -145,8 +146,6 @@ const Header = () => {
 
   useLayoutEffect(() => {
     window.addEventListener("resize", () => {
-      console.log(window.innerWidth);
-      // window.innerWidth < 1200 ? setNavigationToggler(!navigationToggler) : setNavigationToggler(navigationToggler);
       if(window.innerWidth < 1200){
         setNavigationToggler(!navigationToggler);
       }else if(window.innerWidth > 1200){
