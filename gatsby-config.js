@@ -5,6 +5,7 @@ module.exports = {
     author: `@s.barakat`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

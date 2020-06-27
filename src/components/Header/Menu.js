@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { colorTheme, layoutLaptop } from '../../styles/variables';
+import { colorTheme } from '../../styles/variables';
 
 const MainMenu = styled.div`
     width: 100%;
