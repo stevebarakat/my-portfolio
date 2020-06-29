@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React, { useState } from "react";
 import * as Icon from "react-feather";
 import Sectiontitle from "../components/Sectiontitle";
 import Layout from "../components/Layout/Layout";
 
 function Contact(){
-  const [phoneNumbers, setPhoneNumbers] = useState([]);
-  const [emailAddress, setEmailAddress] = useState([]);
-  const [address, setAddress] = useState([]);
   const [formdata, setFormdata] = useState({
     name: "",
     email: "",
@@ -42,12 +38,7 @@ function Contact(){
       [event.currentTarget.name] : event.currentTarget.value
     })
   }
-  const numberFormatter = (number) =>{
-    const phnNumber = number;
-    return phnNumber;
-  }
-
-  const handleAlerts = () => {
+ const handleAlerts = () => {
     if(error && message){
       return (
         <div className="alert alert-danger mt-4">
@@ -64,15 +55,6 @@ function Contact(){
       return null;
     }
   }
-
-  useEffect(() => {
-    axios.get('/api/contactinfo')
-      .then(response =>{
-        setPhoneNumbers(response.data.phoneNumbers);
-        setEmailAddress(response.data.emailAddress);
-        setAddress(response.data.address);
-      })
-  }, [])
 
   return (
     <Layout>
@@ -109,43 +91,27 @@ function Contact(){
             </div>
             <div className="col-lg-6">
               <div className="mi-contact-info">
-                {!phoneNumbers ? null : (
                   <div className="mi-contact-infoblock">
                     <span className="mi-contact-infoblock-icon">
                       <Icon.Phone/>
                     </span>
                     <div className="mi-contact-infoblock-content">
                       <h6>Phone</h6>
-                      {phoneNumbers.map(phoneNumber =>(
-                        <p key={phoneNumber}><a href={numberFormatter(phoneNumber)}>{phoneNumber}</a></p>
-                      ))}
+                        <p><a href="tel:+9048684685">(904) 868-4685</a></p>
                     </div>
                   </div>
-                )}
-                {!emailAddress ? null : (
-                  <div className="mi-contact-infoblock">
-                    <span className="mi-contact-infoblock-icon">
-                      <Icon.Mail/>
-                    </span>
-                    <div className="mi-contact-infoblock-content">
-                      <h6>Email</h6>
-                      {emailAddress.map(email => (
-                        <p key={email}><a href={`mailto:${email}`}>{email}</a></p>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {!phoneNumbers ? null : (
                   <div className="mi-contact-infoblock">
                     <span className="mi-contact-infoblock-icon">
                       <Icon.MapPin/>
                     </span>
                     <div className="mi-contact-infoblock-content">
                       <h6>Address</h6>
-                      <p>{address}</p>
+                      <p>
+                        3862 Valencia Rd.<br />
+                        Jacksonville, FL 32205
+                      </p>
                     </div>
                   </div>
-                )}
               </div>
             </div>
           </div>

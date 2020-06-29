@@ -1,5 +1,5 @@
 import React from "react";
-// import LineIcon from "react-lineicons";
+import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 
 function Pagination({
   itemsPerPage,
@@ -20,7 +20,7 @@ function Pagination({
         {currentPage === 1 ? null : (
           <li>
             <a onClick={e => paginate(e, currentPage - 1)} href="!#">
-              {/* <LineIcon name="chevron-left" /> */}
+              <BsChevronLeft />
             </a>
           </li>
         )}
@@ -37,7 +37,7 @@ function Pagination({
         {currentPage === pageNumbers[pageNumbers.length - 1] ? null : (
           <li>
             <a onClick={e => paginate(e, currentPage + 1)} href="!#">
-              {/* <LineIcon name="chevron-right" /> */}
+              <BsChevronRight />
             </a>
           </li>
         )}

@@ -6,7 +6,8 @@ import Sectiontitle from "../components/Sectiontitle";
 import Service from '../components/Service';
 import Layout from "../components/Layout/Layout";
 import Testimonial from '../components/Testimonial';
-
+import {IoIosTrendingUp, IoIosColorPalette} from 'react-icons/io';
+import { BsCodeSlash } from 'react-icons/bs';
 function About(){
   const [toggler, setToggler] = useState(false);
   const information ={
@@ -36,17 +37,17 @@ function About(){
   const services = [
     {
       title: "Web Design",
-      icon: 'color-pallet',
+      icon: <IoIosColorPalette />,
       details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur ratione quod."
     },
     {
       title: "Web Development",
-      icon: 'code',
+      icon: <BsCodeSlash />,
       details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur ratione quod."
     },
     {
-      title: "Mobile Application",
-      icon: 'mobile',
+      title: "Digital Marketing",
+      icon: <IoIosTrendingUp />,
       details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur ratione quod."
     }
   ];

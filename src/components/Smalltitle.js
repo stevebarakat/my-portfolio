@@ -6,7 +6,7 @@ function Smalltitle(props){
   return (
     <div className="mi-smalltitle">
       <span className="mi-smalltitle-icon">
-        {/* <LineIcon name={props.icon}/> */}
+        {props.icon}
       </span>
       <h4>{props.title}</h4>
     </div>

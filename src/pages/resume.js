@@ -5,6 +5,8 @@ import Smalltitle from '../components/Smalltitle';
 import Progress from "../components/Progress";
 import Layout from '../components/Layout/Layout';
 import Resume from "../components/Resume";
+import { BsBriefcase } from 'react-icons/bs';
+import { IoIosSchool } from 'react-icons/io';
 
 function Resumes(){
   const skills = [
@@ -101,14 +103,14 @@ function Resumes(){
       <div className="mi-resume-area mi-section mi-padding-top mi-padding-bottom">
         <div className="container">
           <Sectiontitle title="Resume" />
-          <Smalltitle title="Working Experience" icon="briefcase" />
+          <Smalltitle title="Working Experience" icon={<BsBriefcase />} />
           <div className="mi-resume-wrapper">
             {workingExperience.map(workingExp => (
               <Resume key={workingExp.id} resumeData={workingExp} />
             ))}
           </div>
           <div className="mt-30"></div>
-          <Smalltitle title="Educational Qualifications" icon="book" />
+          <Smalltitle title="Educational Qualifications" icon={<IoIosSchool />} />
           <div className="mi-resume-wrapper">
             {educationExperience.map(educatonExp => (
               <Resume key={educatonExp.id} resumeData={educatonExp}/>
