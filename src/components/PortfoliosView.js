@@ -6,8 +6,8 @@ import FlipMove from 'react-flip-move';
 function PortfoliosView({ portfolios }) {
   return (
     <div className="row mt-30-reverse">
-      {portfolios.map(portfolio => (
-        <FlipMove className="col-lg-4 col-md-6 col-12 mt-30" duration={750} easing="ease-out">
+      {portfolios.map((portfolio, id) => (
+        <FlipMove key={id} className="col-lg-4 col-md-6 col-12 mt-30" duration={750} easing="ease-out">
           <TrackVisibility
             once
             offset={200}

@@ -19,21 +19,11 @@ function Portfolios() {
             project_name
             link
             image {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+              source_url
             }
-          }
-        }
-      }
-      group(field: id) {
-        edges {
-          node {
-            id
+            large_image {
+              source_url
+            }
           }
         }
       }
@@ -43,19 +33,19 @@ function Portfolios() {
 
 const projects = data.allWordpressAcfPages.nodes[0].acf.projects;
 
+console.log(projects);
+let portfolios = [];
 
-  console.log(projects);
-  let portfolios = [];
-
-  projects.map((project, id) => {
-    console.log(project.project_name)
+projects.map((project, id) => {
+  let largeImageUrl = [];
+  largeImageUrl.push(project.large_image.source_url);
     portfolios = [...portfolios,
       {
         id: id,
         title: project.project_name,
         subtitle: project.description,
-        imageUrl: "/images/portfolio-image-1.jpg",
-        largeImageUrl: ["/images/portfolio-image-1-lg.jpg"],
+        imageUrl: project.image.source_url,
+        largeImageUrl: largeImageUrl,
         url: 'https://dribbble.com'
       },
     ];
@@ -66,7 +56,7 @@ console.log(portfolios);
 
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [portfoliosPerPage] = useState();
+  const [portfoliosPerPage] = useState(3);
 
 
   const indexOfLastPortfolios = currentPage * portfoliosPerPage;
@@ -77,7 +67,7 @@ console.log(portfolios);
     e.preventDefault();
     setCurrentPage(pageNumber);
   }
-
+console.log(portfoliosPerPage);
   return (
     <Layout>
       <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
@@ -88,7 +78,7 @@ console.log(portfolios);
             <Pagination
               className="mt-50"
               itemsPerPage={portfoliosPerPage}
-              // totalItems={portfolios.length}
+              totalItems={portfolios.length}
               paginate={paginate}
               currentPage={currentPage}
             />
