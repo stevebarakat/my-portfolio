@@ -9,17 +9,19 @@ import '../../scss/_style.scss';
 const item = {
   hidden: {
     opacity: 0,
-    // x: 400,
+    x: -1400,
   },
   visible: {
     opacity: 1,
-    // x: 0,
+    x: 0,
   },
 }
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location, url }) => {
+
+  return(
   <>
-    <Header />
+    <Header/>
     <div className="mi-wrapper">
       <motion.main
         variants={item}
@@ -31,5 +33,5 @@ const Layout = ({ children }) => (
       </motion.main>
     </div>
   </>
-)
+)}
 export default Layout;

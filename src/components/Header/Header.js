@@ -10,7 +10,7 @@ function Header() {
 
   const handleNavigationToggler = () => {
     setNavigationToggler(!navigationToggler);
-  }
+  } 
 
   return (
     <nav className={navigationToggler ? "mi-header is-visible" : "mi-header"}>
@@ -20,7 +20,7 @@ function Header() {
       <div className="mi-header-inner">
         <div className="mi-header-image">
           <Link to="/">
-            <Logo />
+            <Logo/>
           </Link>
         </div>
         <ul className="mi-header-menu">

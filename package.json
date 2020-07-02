@@ -42,6 +42,7 @@
     "react-on-screen": "^2.1.1",
     "react-particles-js": "2.4.0",
     "react-slick": "^0.26.1",
+    "shortid": "^2.2.15",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.1",
     "styled-reset": "^4.1.6",
