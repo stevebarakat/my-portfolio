@@ -16,7 +16,7 @@
   "dependencies": {
     "bootstrap": "^4.5.0",
     "browser-monads": "^1.0.0",
-    "framer-motion": "^1.11.0",
+    "framer-motion": "^1.11.1",
     "fslightbox-react": "^1.4.9",
     "gatsby": "^2.23.10",
     "gatsby-cli": "^2.12.51",
@@ -25,7 +25,6 @@
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sass": "^2.3.6",
     "gatsby-plugin-sharp": "^2.6.9",
-    "gatsby-plugin-transition-link": "^1.18.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-wordpress": "^3.3.8",
     "gatsby-transformer-sharp": "^2.5.3",
