@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../components/Layout/Layout";
 import { StyledParticles, paramConfig } from '../components/StyledParticles';
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -14,7 +13,7 @@ function Home() {
 `)
 const { name, description } = data.wordpressSiteMetadata;
   return (
-    <Layout>
+    <>
       <StyledParticles params={paramConfig} />
       <div className="mi-home-area mi-padding-section">
         <div className="container">
@@ -30,7 +29,7 @@ const { name, description } = data.wordpressSiteMetadata;
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }
 

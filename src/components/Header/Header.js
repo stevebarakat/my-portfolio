@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'gatsby';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Hamburger from 'hamburger-react'
 import Logo from './Logo';
 import Copyright from './Copyright';
@@ -10,7 +10,7 @@ function Header() {
 
   const handleNavigationToggler = () => {
     setNavigationToggler(!navigationToggler);
-  } 
+  }
 
   return (
     <nav className={navigationToggler ? "mi-header is-visible" : "mi-header"}>
@@ -19,16 +19,16 @@ function Header() {
       </button>
       <div className="mi-header-inner">
         <div className="mi-header-image">
-          <Link to="/">
-            <Logo/>
-          </Link>
+          <AniLink swipe to="/">
+            <Logo />
+          </AniLink>
         </div>
         <ul className="mi-header-menu">
-          <li><Link to="/" className="link" activeClassName="active"><span>Home</span></Link></li>
+          <li><AniLink swipe to="/" entryOffset={100} className="link" activeClassName="active"><span>Home</span></AniLink></li>
           {/* <li><Link to="/about" className="link" activeClassName="active"><span>About</span></Link></li> */}
           {/* <li><Link to="/resume" className="link" activeClassName="active"><span>Resume</span></Link></li> */}
-          <li><Link to="/portfolio" className="link" activeClassName="active"><span>Portfolio</span></Link></li>
-          <li><Link to="/contact" className="link" activeClassName="active"><span>Contact</span></Link></li>
+          <li><AniLink swipe to="/portfolio" entryOffset={100} className="link" activeClassName="active"><span>Portfolio</span></AniLink></li>
+          <li><AniLink swipe to="/contact" entryOffset={100} className="link" activeClassName="active"><span>Contact</span></AniLink></li>
         </ul>
         <Copyright />
       </div>

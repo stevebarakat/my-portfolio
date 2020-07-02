@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Sectiontitle from "../components/Sectiontitle";
 import { useStaticQuery, graphql } from "gatsby";
-import Layout from "../components/Layout/Layout";
 import Pagination from "../components/Pagination";
 import PortfoliosView from "../components/PortfoliosView";
 
@@ -43,28 +42,28 @@ function Portfolios() {
   }
 `)
 
-const projects = data.allWordpressAcfPages.nodes[0].acf.projects;
+  const projects = data.allWordpressAcfPages.nodes[0].acf.projects;
 
-console.log(projects);
-let portfolios = [];
+  console.log(projects);
+  let portfolios = [];
 
-projects.map((project, id) => {
-  let largeImage = [];
-  largeImage.push(project.image.localFile.childImageSharp.fluid);
+  projects.map((project, id) => {
+    let largeImage = [];
+    largeImage.push(project.image.localFile.childImageSharp.fluid);
     portfolios = [...portfolios,
-      {
-        id: id,
-        title: project.project_name,
-        subtitle: project.description,
-        image: project.image.source_url,
-        largeImage: largeImage,
-        url: 'https://dribbble.com'
-      },
+    {
+      id: id,
+      title: project.project_name,
+      subtitle: project.description,
+      image: project.image.source_url,
+      largeImage: largeImage,
+      url: 'https://dribbble.com'
+    },
     ];
-    return(portfolios);
+    return (portfolios);
   }
   )
-console.log(portfolios);
+  console.log(portfolios);
 
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -79,25 +78,23 @@ console.log(portfolios);
     e.preventDefault();
     setCurrentPage(pageNumber);
   }
-console.log(portfoliosPerPage);
+  console.log(portfoliosPerPage);
   return (
-    <Layout>
-      <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
-        <div className="container">
-          <Sectiontitle title="Portfolio" />
-          <PortfoliosView portfolios={currentPortfolios} />
-          {!(portfolios.length > portfoliosPerPage) ? null : (
-            <Pagination
-              className="mt-50"
-              itemsPerPage={portfoliosPerPage}
-              totalItems={portfolios.length}
-              paginate={paginate}
-              currentPage={currentPage}
-            />
-          )}
-        </div>
+    <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
+      <div className="container">
+        <Sectiontitle title="Portfolio" />
+        <PortfoliosView portfolios={currentPortfolios} />
+        {!(portfolios.length > portfoliosPerPage) ? null : (
+          <Pagination
+            className="mt-50"
+            itemsPerPage={portfoliosPerPage}
+            totalItems={portfolios.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+        )}
       </div>
-    </Layout>
+    </div>
   );
 }
 

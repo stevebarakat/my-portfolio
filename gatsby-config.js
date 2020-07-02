@@ -8,6 +8,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`./src/components/Layout/Layout.js`)
+      }
+    },
+    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {

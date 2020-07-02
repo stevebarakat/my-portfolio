@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { Link } from 'gatsby';
 import { colorTheme } from '../../styles/variables';
 
@@ -48,11 +49,11 @@ const Menu = () => {
   return (
     <MainMenu>
       <ul>
-        <li><Link to="/" className="link" activeClassName="active"><span>Home</span></Link></li>
+        <li><AniLink cover direction="up" bg="rebeccapurple" to="/" className="link" activeClassName="active"><span>Home</span></AniLink></li>
         <li><Link to="/about" className="link" activeClassName="active"><span>About</span></Link></li>
-        <li><Link to="/resume" className="link" activeClassName="active"><span>Resume</span></Link></li>
+        <li><AniLink cover direction="up" bg="rebeccapurple" to="/resume" className="link" activeClassName="active"><span>Resume</span></AniLink></li>
         <li><Link to="/portfolio" className="link" activeClassName="active"><span>Portfolio</span></Link></li>
-        <li><Link to="/contact" className="link" activeClassName="active"><span>Contact</span></Link></li>
+        <li><AniLink cover direction="up" bg="rebeccapurple" to="/contact" className="link" activeClassName="active"><span>Contact</span></AniLink></li>
       </ul>
     </MainMenu>
   )

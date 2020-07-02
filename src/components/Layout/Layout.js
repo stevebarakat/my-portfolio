@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Header/Header";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import shortid from 'shortid';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,21 +18,22 @@ const item = {
   },
 }
 
-const Layout = ({ children, location, url }) => {
-
-  return(
+const Layout = ({ children }) => (
   <>
-    <Header/>
+    <Header />
     <div className="mi-wrapper">
-      <motion.main
-        variants={item}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 1.3 }}
-      >
-        {children}
-      </motion.main>
+      {/* <AnimatePresence> */}
+        {/* <motion.main
+          key={shortid.generate()}
+          initial={{ x: -1400 }}
+          animate={{ x: 0 }}
+          exit={{ x: 1400 }}
+          transition={{ duration: 1.3 }}
+        > */}
+          {children}
+        {/* </motion.main> */}
+      {/* </AnimatePresence> */}
     </div>
   </>
-)}
+)
 export default Layout;
