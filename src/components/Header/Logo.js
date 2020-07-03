@@ -1,22 +1,9 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SvgLines from 'react-mt-svg-lines';
 
 const Logo = ({ toggled, isOpen }) => {
-  const data = useStaticQuery(graphql`
-  {
-    allImageSharp(filter: {fluid: {src: {regex: "/sb-logo.png/"}}}) {
-      nodes {
-        fixed(height: 295) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`)
   return (
-    <AnimatePresence>
       <motion.div
         initial={isOpen ? { rotate: 360 } : { rotate: 0 }}
         animate={toggled ? { rotate: 0 } : { rotate: 360 }}
@@ -30,7 +17,6 @@ const Logo = ({ toggled, isOpen }) => {
           </svg>
         </SvgLines>
       </motion.div>
-    </AnimatePresence>
   )
 }
 

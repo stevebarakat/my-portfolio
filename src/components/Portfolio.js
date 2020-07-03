@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import * as Icon from "react-feather";
 import Img from 'gatsby-image';
 import Modali, { useModali } from './Modali/Modali';
 
 function Portfolio(props) {
-  const [toggler, setToggler] = useState(false);
   const { projectTitle, projectDescription, projectDate, projectSkills, projectImage, projectClient, projectLink } = props.content;
   const [modal, toggleModal] = useModali({
     animated: true,
