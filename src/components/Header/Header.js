@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Hamburger from 'hamburger-react';
-import { Link } from 'gatsby';
+import React, { useState } from 'react'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import Hamburger from 'hamburger-react'
 import Logo from './Logo';
 import Copyright from './Copyright';
 
@@ -19,14 +19,14 @@ function Header() {
       </button>
       <div className="mi-header-inner">
         <div className="mi-header-image">
-          <Link onClick={handleNavigationToggler} to="/">
+          <AniLink onClick={handleNavigationToggler} swipe entryOffset={0} to="/">
             <Logo />
-          </Link>
+          </AniLink>
         </div>
         <ul className="mi-header-menu">
-          <li><Link onClick={handleNavigationToggler} to="/"><span>Home</span></Link></li>
-          <li><Link onClick={handleNavigationToggler} to="/portfolio"><span>Portfolio</span></Link></li>
-          <li><Link onClick={handleNavigationToggler} to="/contact"><span>Contact</span></Link></li>
+          <li><AniLink onClick={handleNavigationToggler} swipe to="/" entryOffset={100} className="link" activeClassName="active"><span>Home</span></AniLink></li>
+          <li><AniLink onClick={handleNavigationToggler} swipe to="/portfolio" entryOffset={100} className="link" activeClassName="active"><span>Portfolio</span></AniLink></li>
+          <li><AniLink onClick={handleNavigationToggler} swipe to="/contact" entryOffset={100} className="link" activeClassName="active"><span>Contact</span></AniLink></li>
         </ul>
         <Copyright />
       </div>
