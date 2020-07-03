@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shortid from 'shortid';
-import './modali.css';
 
 const Button = ({
   onClick, label, isStyleDefault, isStyleCancel, isStyleDestructive,
@@ -71,21 +70,6 @@ const Modal = ({
     return false;
   }
 
-  function renderFooter() {
-    const { buttons } = options;
-    return (
-      <div className="modali-footer">
-        {buttons.map(button => (
-          <React.Fragment
-            key={shortid.generate()}
-          >
-            {button}
-          </React.Fragment>
-        ))}
-      </div>
-    );
-  }
-
   const modaliWrapperClass = classNames({
     'modali-wrapper': true,
     'modali-wrapper-centered': options && options.centered,
@@ -105,21 +89,11 @@ const Modal = ({
         <div className={modaliClass}>
           <div className="modali-content">
             {options !== undefined && options.closeButton === false ? null : (
-              <div className="modali-header">
-                {options !== undefined && options.title !== undefined && (
-                  <div className="modali-title">
-                    {options.title}
-                  </div>
-                )}
                 <button type="button" className="modali-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
                   <span aria-hidden="true">&times;</span>
                 </button>
-              </div>
             )}
-            <div className="modali-body">
               {renderBody()}
-            </div>
-            {options && options.buttons && options.buttons.length > 0 && renderFooter()}
           </div>
         </div>
       </div>

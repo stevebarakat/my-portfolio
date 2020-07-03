@@ -19,7 +19,7 @@ function Header() {
       </button>
       <div className="mi-header-inner">
         <div className="mi-header-image">
-          <AniLink onClick={handleNavigationToggler} swipe entryOffset={0} to="/">
+          <AniLink onClick={handleNavigationToggler} swipe entryOffset={100} to="/">
             <Logo />
           </AniLink>
         </div>

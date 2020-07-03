@@ -12,8 +12,11 @@ function Portfolios() {
       nodes {
         acf {
           projects {
-            image {
-              source_url
+            projectClient
+            projectDescription
+            projectLink
+            projectName
+            projectImage {
               localFile {
                 childImageSharp {
                   fluid {
@@ -22,16 +25,12 @@ function Portfolios() {
                 }
               }
             }
-            description
-            date
-            client
-            link
-            project_name
-            project_type {
+            projectDate
+            projectType {
               name
               slug
             }
-            skills {
+            projectSkills {
               name
               slug
             }
@@ -48,16 +47,17 @@ function Portfolios() {
   let portfolios = [];
 
   projects.map((project, id) => {
-    let largeImage = [];
-    largeImage.push(project.image.localFile.childImageSharp.fluid);
     portfolios = [...portfolios,
     {
       id: id,
-      title: project.project_name,
-      subtitle: project.description,
-      image: project.image.source_url,
-      largeImage: largeImage,
-      url: 'https://dribbble.com'
+      projectTitle: project.projectName,
+      projectDescription: project.projectDescription,
+      projectImage: project.projectImage.localFile.childImageSharp.fluid,
+      projectLink: project.projectLink,
+      projectClient: project.projectClient,
+      projectDate: project.projectDate,
+      projectType: project.projectType.slug,
+      projectSkills: project.projectSkills[0].name,
     },
     ];
     return (portfolios);
