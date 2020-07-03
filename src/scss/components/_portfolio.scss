@@ -19,7 +19,7 @@
       top: 15px;
       height: calc(100% - 30px);
       width: calc(100% - 30px);
-      background: rgba(#ffffff, 0.9);
+      background: rgba($color-bg-body, 0.5);
       transition: $transition;
       transform: scaleX(0);
       transform-origin: 0;
@@ -76,9 +76,9 @@
 
   h5 {
     color: $color-heading;
-    margin-top: 15px;
-    margin-bottom: 0;
+    margin: 0;
     font-weight: 700;
+    font-size: 1.15em;
 
     a {
       color: #ffffff;
@@ -142,10 +142,14 @@
 .project-description p {
   padding-left: 0;
 }
+.project-titles{
+  background: black;
+  padding: 0.5em;
+}
 .project-title {
   margin-top: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #fece1a;
+  border-bottom: 1px solid $color-border;
 }
 .project-title h3 {
   float: left;
@@ -154,12 +158,15 @@
   width: 80%;
 }
 .project-title .close {
-  color: #fece1a;
+  color: $color-theme;
   margin-top: 10px;
 }
-.project-info span,
+.project-info span{
+  color: $color-theme;
+  font-weight: 700;
+}
 .project-title h3 {
-  color: #fece1a;
+  color: $color-heading;
 }
 .project-info {
   font-weight: 100;
@@ -169,9 +176,11 @@
   width: 80px;
   display: inline-block;
 }
-
 .project-info a {
-  color: #fece1a;
+  color: $color-theme;
+}
+.project-info a:hover {
+  text-decoration: underline;
 }
 .close {
   float: right;
@@ -241,7 +250,7 @@
   outline: 0 !important;
   border-radius: 90%;
   float: right;
-  position: absolute;
+  position: relative;
   right: 1.5em;
   top: 1.5em;
   width: 1.5em;

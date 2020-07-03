@@ -15,12 +15,12 @@ function Header() {
   return (
     <nav className={navigationToggler ? "mi-header is-visible" : "mi-header"}>
       <button onClick={handleNavigationToggler} className="mi-header-toggler">
-        <Hamburger toggled={isOpen} toggle={setOpen} />
+        <Hamburger toggled={navigationToggler} toggle={setOpen} />
       </button>
       <div className="mi-header-inner">
         <div className="mi-header-image">
           <AniLink onClick={handleNavigationToggler} swipe entryOffset={100} to="/">
-            <Logo />
+            <Logo toggled={navigationToggler} isOpen={isOpen} />
           </AniLink>
         </div>
         <ul className="mi-header-menu">
