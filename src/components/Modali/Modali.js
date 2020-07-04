@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { AiFillCloseSquare } from 'react-icons/ai';
 
 const Button = ({
   onClick, label, isStyleDefault, isStyleCancel, isStyleDestructive,
@@ -89,7 +90,7 @@ const Modal = ({
           <div className="modali-content">
             {options !== undefined && options.closeButton === false ? null : (
                 <button type="button" className="modali-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
-                  <span aria-hidden="true">&times;</span>
+                  <span aria-hidden="true"><AiFillCloseSquare/></span>
                 </button>
             )}
               {renderBody()}

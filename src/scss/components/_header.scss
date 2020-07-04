@@ -53,10 +53,11 @@
         border-bottom: 1px solid $color-border;
 
         a {
-            height: 200px;
-            width: 200px;
+            // height: 80%;
+            width: 80%;
+            background-color: $color-border;
             border-radius: 1000px;
-            border: 7px solid $color-border;
+            border: 9px solid $color-border;
             overflow: hidden;
             display: inline-block;
             vertical-align: middle;

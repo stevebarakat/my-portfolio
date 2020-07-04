@@ -14,7 +14,7 @@ function Home() {
 const { name, description } = data.wordpressSiteMetadata;
   return (
     <>
-      <StyledParticles params={paramConfig} />
+      {/* <StyledParticles params={paramConfig} /> */}
       <div className="mi-home-area mi-padding-section">
         <div className="container">
           <div className="row justify-content-center">

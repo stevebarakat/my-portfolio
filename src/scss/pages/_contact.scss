@@ -65,7 +65,7 @@
   @media #{$layout-mobile-sm} {
     &-infoblock {
       padding: 20px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
 
       &-icon {
         height: 55px;
@@ -76,7 +76,6 @@
       }
 
       &-content{
-        margin-top: 20px;
         flex: 0 0 100%;
       }
     }

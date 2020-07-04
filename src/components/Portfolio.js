@@ -43,12 +43,9 @@ function Portfolio(props) {
         <div className="single-project">
           <Img className="single-project-img" fluid={projectImage} />
           <div className="project-description">
-            <div className="project-title clearfix">
+            {/* <div className="project-title clearfix"> */}
               <h3>{projectTitle}</h3>
-              <span className="show_hide close">
-                <i className="icon-cancel"></i>
-              </span>
-            </div>
+            {/* </div> */}
             <div className="project-info">
               <div><span>Client</span>{projectClient}</div>
               <div><span>Date</span>{projectDate}</div>

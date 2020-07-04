@@ -19,7 +19,7 @@ function Portfolios() {
             projectImage {
               localFile {
                 childImageSharp {
-                  fluid {
+                  fluid(maxWidth: 640) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -57,7 +57,7 @@ function Portfolios() {
       projectClient: project.projectClient,
       projectDate: project.projectDate,
       projectType: project.projectType.slug,
-      projectSkills: project.projectSkills[0].name,
+      projectSkills: project.projectSkills.map(skill => `${skill.name}, `),
     },
     ];
     return (portfolios);
