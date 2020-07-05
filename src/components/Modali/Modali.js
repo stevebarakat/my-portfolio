@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import { AiFillCloseSquare } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { AiFillCloseSquare } from 'react-icons/ai';
 
 const Button = ({
-  onClick, label, isStyleDefault, isStyleCancel, isStyleDestructive,
+  onClick, label, isStyleDefault
 }) => {
   const buttonClass = classNames({
     'modali-button': true,
-    'modali-button-cancel': isStyleCancel,
     'modali-button-default': isStyleDefault,
-    'modali-button-destructive': isStyleDestructive,
   });
   return (
     <button
@@ -26,16 +24,12 @@ const Button = ({
 
 Button.defaultProps = {
   isStyleDefault: false,
-  isStyleCancel: false,
-  isStyleDestructive: false,
 };
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   isStyleDefault: PropTypes.bool,
-  isStyleCancel: PropTypes.bool,
-  isStyleDestructive: PropTypes.bool,
 };
 
 const Modal = ({
