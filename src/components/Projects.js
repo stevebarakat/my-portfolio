@@ -1,9 +1,9 @@
 import React from "react";
 import TrackVisibility from "react-on-screen";
-import Portfolio from '../components/Portfolio';
+import ProjectPreview from '../components/ProjectPreview';
 import FlipMove from 'react-flip-move';
 
-function PortfoliosView({ portfolios }) {
+function Projects({ portfolios }) {
   return (
     <div className="row mt-30-reverse">
       {portfolios.map((portfolio, id) => (
@@ -13,7 +13,7 @@ function PortfoliosView({ portfolios }) {
             offset={200}
             key={portfolio.id}
           >
-            <Portfolio content={portfolio} />
+            <ProjectPreview content={portfolio} />
           </TrackVisibility>
         </FlipMove>
       ))}
@@ -21,4 +21,4 @@ function PortfoliosView({ portfolios }) {
   );
 }
 
-export default PortfoliosView;
+export default Projects;
