@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import * as Icon from "react-feather";
 import Img from 'gatsby-image';
-import ModalContainer from './Modal/ModalContainer';
+import LightboxModal from './LightboxModal';
 
 function ProjectPreview(props) {
-  const { projectTitle, projectImage, projectClient, projectLink } = props.content;
+  const { projectTitle, projectImage, projectClient, projectLink, projectDescription, projectDate, projectSkills } = props.content;
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal(!showModal);
 
   return (
     <>
-      <div className="mi-portfolio mi-portfolio-visible">
       <div className="mi-portfolio mi-portfolio-visible">
         <div className="mi-portfolio-image">
           <Img fluid={projectImage} />
@@ -36,8 +35,18 @@ function ProjectPreview(props) {
           </h5>}
           {projectTitle ? <h6>{projectTitle}</h6> : null}
         </div>
-      </div>
-      <ModalContainer showModal={showModal} projectLink={projectLink} projectImage={projectImage} />
+      <LightboxModal 
+        toggleModal={toggleModal} 
+        showModal={showModal}
+        setShowModal={setShowModal}
+        projectLink={projectLink} 
+        projectImage={projectImage} 
+        projectTitle={projectTitle}
+        projectDescription={projectDescription}
+        projectDate={projectDate}
+        projectSkills={projectSkills}
+        projectClient={projectClient}
+      />
     </>
   );
 }

@@ -18,46 +18,36 @@ const modal = {
     opacity: 1,
     transition: { delay: 0.5 }
   },
+  stageLeft: {
+    y: "-100vh",
+    opacity: 0
+  }
 }
 
 const LightboxModal = ({ showModal, toggleModal, projectImage, projectTitle, projectLink, projectDescription, projectDate, projectSkills, projectClient }) => {
   return (
-    <AnimatePresence exitBeforeEnter>
-      {/* <div className="mi-portfolio mi-portfolio-visible">
-        <div className="mi-portfolio-image">
-          <Img fluid={projectImage} />
-          <ul>
-            {!projectImage ? null : <li>
-              <button onClick={() => toggleModal()}>
-                <Icon.ZoomIn />
-              </button>
-            </li>}
-            {projectLink ? <li>
-              <a rel="noopener noreferrer" target="_blank" href={projectLink}>
-                <Icon.Link />
-              </a>
-            </li> : null}
-          </ul>
-        </div>
-      </div> */}
+    <AnimatePresence>
       {showModal && (
         <motion.div className="backdrop"
+          onClick={() => toggleModal()}
           variants={backdrop}
           initial="hidden"
           animate="visible"
-          exit="hidden"
+          exit="stageLeft"
         >
           <motion.div
-            variants={modal}
+            id="lbxMdl"
             className="modal"
+            variants={modal}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
           >
-            <button onClick={toggleModal}>&times;</button>
+            <button onClick={() => toggleModal()}>&times;</button>
             <div className="single-project">
               <Img className="single-project-img" fluid={projectImage} />
               <div className="project-description">
-                {/* <div className="project-title clearfix"> */}
                 <h3>{projectTitle}</h3>
-                {/* </div> */}
                 <div className="project-info">
                   <div><span>Client</span>{projectClient}</div>
                   <div><span>Date</span>{projectDate}</div>
