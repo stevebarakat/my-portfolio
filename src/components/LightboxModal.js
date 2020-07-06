@@ -1,50 +1,65 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 import * as Icon from "react-feather";
 
 const backdrop = {
   visible: { opacity: 1 },
-  hidden: { opacity: 0 }
+  hidden: { opacity: 0 },
 }
 
 const modal = {
-  hidden: {
-    y: "-100vh",
-    opacity: 0
-  },
+  hidden: { y: "-100vh", opacity: 0 },
   visible: {
-    y: "20%",
+    y: "200px",
     opacity: 1,
     transition: { delay: 0.5 }
   },
-  stageLeft: {
-    y: "-100vh",
-    opacity: 0
-  }
 }
 
-const LightboxModal = ({ showModal, toggleModal, projectImage, projectTitle, projectLink, projectDescription, projectDate, projectSkills, projectClient }) => {
+const LightboxModal = ({ 
+  toggleModal, 
+  modalShowing, 
+  projectImage, 
+  projectTitle, 
+  projectLink, 
+  projectDescription, 
+  projectDate, 
+  projectSkills, 
+  projectClient 
+}) => {
+  
+  const handleDocumentClick = e => {
+    // return element object or null
+    const isClosest = e.target.closest(`[id=lbxMdl]`);
+    console.log(isClosest);
+    if (modalShowing && !isClosest) {
+      toggleModal()
+    }
+  };
+  
+  useEffect( () => {
+    document.addEventListener('click', e => handleDocumentClick(e));
+    return (document.removeEventListener('click', handleDocumentClick));
+  },[handleDocumentClick])
+  
   return (
     <AnimatePresence>
-      {showModal && (
+      { modalShowing && (
         <motion.div className="backdrop"
-          onClick={() => toggleModal()}
           variants={backdrop}
           initial="hidden"
           animate="visible"
-          exit="stageLeft"
+          exit="hidden"
         >
           <motion.div
-            id="lbxMdl"
             className="modal"
             variants={modal}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
           >
-            <button onClick={() => toggleModal()}>&times;</button>
-            <div className="single-project">
+            <button onClick={ () => toggleModal() }>&times;</button>
+            
+            <div id="lbxMdl" className="single-project">
               <Img className="single-project-img" fluid={projectImage} />
               <div className="project-description">
                 <h3>{projectTitle}</h3>
