@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Sectiontitle from "../components/Sectiontitle";
 import { useStaticQuery, graphql } from "gatsby";
 import Pagination from "../components/Pagination";
-import PortfoliosView from "../components/PortfoliosView";
+import Projects from "../components/Projects";
 
-function Portfolios() {
+function Portfolio() {
 
   const data = useStaticQuery(graphql`
   {
@@ -83,7 +83,7 @@ function Portfolios() {
     <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
       <div className="container">
         <Sectiontitle title="Portfolio" />
-        <PortfoliosView portfolios={currentPortfolios} />
+        <Projects portfolios={currentPortfolios} />
         {!(portfolios.length > portfoliosPerPage) ? null : (
           <Pagination
             className="mt-50"
@@ -98,4 +98,4 @@ function Portfolios() {
   );
 }
 
-export default Portfolios;
+export default Portfolio;

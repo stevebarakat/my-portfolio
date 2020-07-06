@@ -123,7 +123,7 @@
   margin: 1em;
   max-height: 90vh;
   overflow: auto;
-  
+
   @media #{$layout-tablet} {
     grid-template-columns: repeat(1, 1fr);
     max-width: 80%;
@@ -134,7 +134,7 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.single-project-img-wrap{
+.single-project-img-wrap {
   width: 640px;
   display: inline-block;
 }
@@ -148,7 +148,7 @@
   h3 {
     border-bottom: 1px solid $color-border;
     line-height: 1em;
-    padding-bottom: .35em;
+    padding-bottom: 0.35em;
   }
   @media #{$layout-tablet} {
     line-height: 1.3em;
@@ -221,160 +221,51 @@
   display: none;
 }
 
-.backdrop{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-  background-color: rgba(255, 0, 0, 0.5);
-}
-
 /////////////////////////////
-// MODALI //////////////////
+// MODAL ///////////////////
 ///////////////////////////
 
-.modali-overlay {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  opacity: 0.5;
-}
-
-.modali-wrapper {
-  display: inline-table;
-  position: fixed;
-  margin: 0 0 0 1.35em;
-  padding: 0;
-  top: 0;
-  left: 0;
-  z-index: 1050;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  outline: 0;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
 }
 
-.modali {
-  z-index: 100;
-  background: none;
-  position: relative;
-  margin: 1.75rem auto;
-  border-radius: 3px;
-  pointer-events: none;
-}
-
-.modali-content {
-  pointer-events: auto;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.modali-close-button {
-  margin: -1rem -1rem -1rem auto;
-  font-size: 3em;
-  font-weight: 700;
-  line-height: 1;
-  color: $color-theme;
-  opacity: 0.8;
-  cursor: pointer;
-  border: none;
-  outline: 0 !important;
-  float: right;
-  position: relative;
-  right: 1.45em;
-  width: 1.5em;
-  height: 1.5em;
+.modal {
+  width: 100%;
+  height: auto;
   z-index: 9999;
-  @media #{$layout-tablet} {
-    opacity: 0.8;
+  transition: $transition;
+
+  @media #{$layout-desktop} {
+    width: calc(100% - 300px);
+    margin-left: 300px;
   }
-  @media #{$layout-mobile-lg} {
-    opacity: 0.8;
+  @media #{$layout-desktop-xs} {
+    width: calc(100% - 300px);
+    margin-left: 300px;
   }
-}
-.modali-close-button:hover {
-  opacity: 0.8;
-  text-decoration: none;
-}
-
-@media (min-width: 1025px) {
-  .modali-open {
-    // padding-right: 15px;
+  @media #{$layout-laptop} {
+    width: calc(100% - 260px);
+    margin-left: 260px;
   }
-}
-
-.modali-open {
-  overflow: hidden;
-}
-
-/* Size Classes */
-
-.modali-size-regular {
-  min-width: 100%;
-  max-width: 500px;
-}
-.modali-size-large {
-  min-width: 100%;
-  max-height: 100%;
-}
-
-/* Position Classes */
-
-.modali-wrapper-centered {
-  top: 40% !important;
-}
-
-@media (min-width: 1000px) {
-  .modali-wrapper-centered {
-    top: 0 !important;
-    display: flex !important;
-    align-items: center;
+  @media #{$layout-laptop} {
+    width: calc(100% - 260px);
+    margin-left: 260px;
   }
 }
-
-/* Animation Classes */
-
-.modali-animated {
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+.modal button {
+  color: green;
+  border-color: yellow;
+  font-weight: bold;
+  background: red;
 }
-
-.modali-animation-fade-in {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 30%, 0);
-    transform: translate3d(0, 30%, 0);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 30%, 0);
-    transform: translate3d(0, 30%, 0);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+.modal p {
+  color: #444;
+  font-weight: bold;
 }
